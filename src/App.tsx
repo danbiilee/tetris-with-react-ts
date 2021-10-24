@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   const gameArea = React.useRef<HTMLDivElement>(null);
 
-  const { player, updatePlayerPos, resetPlayer } = usePlayer();
+  const { player, updatePlayerPos, resetPlayer, playerRotate } = usePlayer();
   const { stage, setStage } = useStage(player, resetPlayer);
 
   const movePlayer = (dir: number) => {
@@ -62,7 +62,7 @@ const App: React.FC = () => {
       if (repeat) return;
       setDropTime(30);
     } else if (keyCode === 38) {
-      // up, Implement this later
+      playerRotate(stage);
     }
   };
 
