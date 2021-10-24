@@ -8,7 +8,6 @@ export type Player = {
     x: number;
     y: number;
   };
-  // tetromino: (string | number)[][];
   tetromino: (string | number)[][];
   collided: boolean;
 };
@@ -27,10 +26,7 @@ export const usePlayer = () => {
   }): void => {
     setPlayer((prev) => ({
       ...prev,
-      pos: {
-        x: prev.pos.x + x,
-        y: prev.pos.x + y,
-      },
+      pos: { x: (prev.pos.x += x), y: (prev.pos.y += y) },
       collided,
     }));
   };
